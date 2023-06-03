@@ -634,26 +634,34 @@ st.write('''
 ''')
 st.write('')
 
-temp_rf = RandomForestClassifier()
-params = {
-    'max_depth': [None],
-    'max_features': [1.0],
-    'max_samples': [0.7],
-    'min_samples_leaf': [2],
-    'min_samples_split': [2],
-    'n_estimators': [100],
-}
-scoring = {'accuracy', 'precision', 'recall', 'f1', 'roc_auc'}
-temp_cv = GridSearchCV(temp_rf, params, scoring=scoring, cv=5, refit='f1')
-temp_cv.fit(X_train, y_train)
-feat_impt = temp_cv.best_estimator_.feature_importances_
-ind = np.argpartition(temp_cv.best_estimator_.feature_importances_, -10)[-10:]
 importance = pd.DataFrame({
-    'Feature': X.columns[ind],
-    'Importance': feat_impt[ind],
+    'Feature': [
+        'satisfaction_level', 
+        'number_project', 
+        'last_evaluation', 
+        'tenure', 
+        'average_monthly_hours', 
+        'salary_low', 
+        'department_sales', 
+        'department_technical', 
+        'salary_medium', 
+        'department_support'
+    ],
+    'Importance': [
+        0.4656167,
+        0.1558797,
+        0.154371,
+        0.1160692,
+        0.09387437,
+        0.002243415,
+        0.002119278,
+        0.001976613,
+        0.001680455,
+        0.001085423,
+    ],
 })
 feature_importance = px.bar(
-    importance.sort_values("Importance", ascending=False), 
+    importance, 
     x='Feature', y='Importance',
     title = 'Random Forest Feature Importance',
     color_discrete_sequence = ['#636EFA'],
