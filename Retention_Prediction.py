@@ -271,7 +271,6 @@ st.divider() #------------------------------------------------------------------
 
 st.header('Endnote')
 linkedin_url = 'https://www.linkedin.com/in/ying-sunwan/'
-st.write('''
-    Thank you for viewing my project! Please check my [linkedin_url](%s) for more.\\
-    This project was completed as part of the Google Advanced Data Analytics Certification capstone.
-''' %linkedin_url)
+credential_url = 'https://www.credly.com/badges/92783fb2-9d90-4d7e-9afd-21d5a590aefc/linked_in_profile'
+st.write('Thank you for viewing my project! Please check my [LinkedIn](%s) for more' %linkedin_url)
+st.write('This project was completed as part of the [Google Advanced Data Analytics Certification](%s) capstone.' %credential_url)
