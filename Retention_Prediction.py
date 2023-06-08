@@ -200,7 +200,7 @@ code = '''
         max_samples = 0.7,
         min_samples_leaf = 2,
         min_samples_split = 2,
-        n_estimators = 100
+        n_estimators = 500
     )
 '''
 st.code(code, language='python')
@@ -270,7 +270,8 @@ predictor.app(rf)
 st.divider() #--------------------------------------------------------------------------------------------------------
 
 st.header('Endnote')
+kaggle_url = ''
 linkedin_url = 'https://www.linkedin.com/in/ying-sunwan/'
 credential_url = 'https://www.credly.com/badges/92783fb2-9d90-4d7e-9afd-21d5a590aefc/linked_in_profile'
-st.write('Thank you for viewing my project! Please check my [LinkedIn](%s) for more' %linkedin_url)
+st.write('Thank you for viewing my project! For the full notebook, check my [Kaggle notebook](%s) :)' %kaggle_url)
 st.write('This project was completed as part of the [Google Advanced Data Analytics Certification](%s) capstone.' %credential_url)

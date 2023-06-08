@@ -142,6 +142,7 @@ def get_dt(df, X_train, X_test, y_train):
         max_features = 1.0,
         min_samples_leaf = 2,
         min_samples_split = 4,
+        random_state = 123,
     )
     tree.fit(X_train, y_train)
     y_pred = tree.predict(X_test)
@@ -187,7 +188,8 @@ def get_rf(df, X_train, X_test, y_train):
         max_samples = 0.7,
         min_samples_leaf = 2,
         min_samples_split = 2,
-        n_estimators = 100
+        n_estimators = 500,
+        random_state = 123,
     )
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)
@@ -197,8 +199,8 @@ def get_rf_report():
     report = pd.DataFrame({
         '': ['0', '1', 'Accuracy', 'Macro Avg',],# 'Weighted Avg'],
         'Precision': ['0.99', '0.98', '', '0.98',],#  '0.98'],
-        'Recall': ['1.00', '0.92', '', '0.96',],#  '0.98'],
-        'F1': ['0.99', '0.95', '0.98', '0.97',],#  '0.98'],
+        'Recall': ['1.00', '0.93', '', '0.96',],#  '0.98'],
+        'F1': ['0.99', '0.95', '0.99', '0.97',],#  '0.98'],
         'Support': ['2009', '390', '2399', '2399',],#  '2399']
     })
     return report
@@ -206,19 +208,19 @@ def get_rf_report():
 def get_rf_metrics():
     metrics = pd.DataFrame({
         '': ['Training', 'Validation'],
-        'Precision': ['99.20', '98.09'],
-        'Recall': ['92.44', '92.31'],
-        'F1': ['95.70', '95.11'],
-        'Accuracy': ['98.61', '98.46'],
+        'Precision': ['99.26', '98.37'],
+        'Recall': ['92.38', '92.56'],
+        'F1': ['95.70', '95.38'],
+        'Accuracy': ['98.61', '98.54'],
     })
     return metrics
 
 def get_eval_metrics():
     eval_metrics = pd.DataFrame({
         '': ['Decision Tree', 'Random Forest'],
-        'Precision': ['91.88', '98.09'],
-        'Recall': ['92.82', '92.31'],
-        'F1': ['92.35', '95.11'],
-        'Accuracy': ['97.50', '98.46'],
+        'Precision': ['91.88', '98.37'],
+        'Recall': ['92.82', '92.56'],
+        'F1': ['92.35', '95.38'],
+        'Accuracy': ['97.50', '98.54'],
     })
     return eval_metrics
