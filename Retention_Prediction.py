@@ -270,7 +270,7 @@ predictor.app(rf)
 st.divider() #--------------------------------------------------------------------------------------------------------
 
 st.header('Endnote')
-kaggle_url = ''
+kaggle_url = 'https://www.kaggle.com/code/yingsunwan/employee-retention-prediction/notebook'
 linkedin_url = 'https://www.linkedin.com/in/ying-sunwan/'
 credential_url = 'https://www.credly.com/badges/92783fb2-9d90-4d7e-9afd-21d5a590aefc/linked_in_profile'
 st.write('Thank you for viewing my project! For the full notebook, check my [Kaggle notebook](%s) :)' %kaggle_url)
